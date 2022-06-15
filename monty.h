@@ -1,5 +1,6 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
+#define _POSIX_C_SOURCE 200809L
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -58,4 +59,11 @@ typedef struct instruction_s
 
 void get_op(char *op, stack_t **stack, unsigned int line_number);
 void m_push(stack_t **stack, unsigned int line_number);
-void m_push2(stack_t **stack, int n);
+void m_pall(stack_t **stack, unsigned int line_number);
+void free_stack(int status, void *arg);
+void m_fs_close(int status, void *arg);
+void free_lineptr(int status, void *arg);
+int on_exit(void (*function)(int, void *), void *arg);
+stack_t *add_node(stack_t **stack, const int n);
+
+#endif /* _MONTY_H */
