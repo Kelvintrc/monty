@@ -17,6 +17,7 @@ void get_op(char *op, stack_t **stack, unsigned int line_number)
 		{"pint", m_pint},
 		{"pop", m_pop},
 		{"swap", m_swap},
+		{"add", m_add},
 		{NULL, NULL}
 	};
 
