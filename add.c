@@ -3,7 +3,7 @@
 /**
  * m_add - add the top two elements of the stack
  * @stack: double pointer to the beginning of the stack
- * @line_number: script line 
+ * @line_number: script line
  *
  * Return: void
  */
