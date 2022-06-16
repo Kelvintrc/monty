@@ -20,7 +20,6 @@ stack_t *add_node(stack_t **stack, const int n)
 	if (!new)
 	{
 		dprintf(2, "Error: malloc failed\n");
-		free_var();
 		exit(EXIT_FAILURE);
 	}
 	if (new == NULL)
@@ -41,21 +40,4 @@ stack_t *add_node(stack_t **stack, const int n)
 	if (var.queue == STACK || var.stack_len == 0)
 		*stack = new;
 	return (new);
-}
-
-/**
- * free_dlistint - frees the doubly linked list
- * @stack: head of the list
- *
- * Return: void
- */
-void free_dlistint(stack_t *stack)
-{
-	stack_t *new;
-
-	while ((new = stack) != NULL)
-	{
-		stack = stack->next;
-		free(new);
-	}
 }
