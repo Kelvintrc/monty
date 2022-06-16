@@ -81,5 +81,7 @@ void m_fs_close(int status, void *arg);
 void free_lineptr(int status, void *arg);
 int on_exit(void (*function)(int, void *), void *arg);
 stack_t *add_node(stack_t **stack, const int n);
+void free_dlistint(stack_t *stack);
+void free_var(void);
 
 #endif /* _MONTY_H */

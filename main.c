@@ -4,6 +4,18 @@
 var_t var;
 
 /**
+ * free_var - frees the global variables
+ *
+ * Return: void
+ */
+void free_var(void)
+{
+	free_dlistint(var.stack);
+	free(var.buffer);
+	fclose(var.fs);
+}
+
+/**
  * main - Monty bytecode interpreter
  * @argc: number of arguments passed
  * @argv: array of argument strings
@@ -23,12 +35,14 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		dprintf(STDOUT_FILENO, "USAGE: monty file\n");
+		free_var();
 		exit(EXIT_FAILURE);
 	}
 	fs = fopen(argv[1], "r");
 	if (fs == NULL)
 	{
 		dprintf(STDOUT_FILENO, "Error: Can't open file %s\n", argv[1]);
+		free_var();
 		exit(EXIT_FAILURE);
 	}
 	on_exit(free_lineptr, &lineptr);
@@ -43,5 +57,6 @@ int main(int argc, char *argv[])
 			get_op(op, &stack, line_number);
 		}
 	}
+	free_var();
 	exit(EXIT_SUCCESS);
 }
