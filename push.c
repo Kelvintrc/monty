@@ -37,7 +37,7 @@ void m_push(stack_t **stack, unsigned int line_number)
 	arg = strtok(NULL, "\n\t\r");
 	if (arg == NULL || check_for_digit(arg))
 	{
-		dprintf(STDOUT_FILENO,
+		dprintf(2,
 				"L%u: usage: push integer\n",
 				line_number);
 		exit(EXIT_FAILURE);
@@ -45,7 +45,7 @@ void m_push(stack_t **stack, unsigned int line_number)
 	n = atoi(arg);
 	if (!add_node(stack, n))
 	{
-		dprintf(STDOUT_FILENO, "Error: malloc failed\n");
+		dprintf(2, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	var.stack_len++;
