@@ -22,7 +22,7 @@ void m_pchar(stack_t **stack, unsigned int line_number)
 	ch = (*stack)->n;
 	if (!isascii(ch))
 	{
-		dprintf(STDOUT_FILENO,
+		dprintf(STDERR_FILENO,
 				"L%u: can't pchar, value out of range\n",
 				line_number);
 		exit(EXIT_FAILURE);
